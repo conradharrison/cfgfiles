@@ -1,0 +1,8 @@
+set guioptions='a'
+
+colorscheme solarized
+highlight Normal guibg=black guifg=#a3b4b6
+
+set guifont=Lucida_Console:h10:cANSI
+set guifont=InputMono_Medium:h11:cANSI
+set guifont=Consolas:h12:cANSI
