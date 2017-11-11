@@ -1,8 +1,12 @@
 set nocompatible
 behave xterm
 
-set backspace=indent,eol,start
+set backupdir=$VIMBDIR
+set backup
+if !isdirectory($VIMBDIR) | set nobackup | endif
+
 set autochdir
+set backspace=indent,eol,start
 set cmdwinheight=1
 set noswapfile
 set expandtab
@@ -15,6 +19,7 @@ set noequalalways
 set ruler
 set shiftwidth=4
 set tabstop=4
+set textwidth=0
 set sidescroll=1
 set title
 set wildmode=list:longest
@@ -30,5 +35,9 @@ set background=dark
 colorscheme darkblue
 
 filetype plugin indent on
+
+" Paste like xterm
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
 
 autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4
