@@ -10,19 +10,23 @@ set highlight="l"
 set hlsearch
 set incsearch
 set smartcase
+set showmatch
 set noequalalways
 set ruler
-set showmatch
+set shiftwidth=4
+set tabstop=4
 set sidescroll=1
 set title
 set wildmode=list:longest
 set number
 set foldmethod=marker
-set tabstop=4
+set encoding=utf-8
+set diffexpr="diff -w -b"
 let g:netrw_liststyle=1 " 0-thin, 1-details, 2-wide, 3-tree
 
 syntax on
 
+set background=dark
 colorscheme darkblue
 
 filetype plugin indent on
