@@ -13,6 +13,7 @@ set expandtab
 set highlight="l"
 set hlsearch
 set incsearch
+set ignorecase
 set smartcase
 set showmatch
 set noequalalways
@@ -40,4 +41,4 @@ filetype plugin indent on
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4
+autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 textwidth=0 noexpandtab
