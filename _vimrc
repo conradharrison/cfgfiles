@@ -41,6 +41,9 @@ filetype plugin indent on
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
+" SystemVerilog files use Verilog syntax
+autocmd BufNewFile,BufRead *.sv set syntax=verilog
+
 autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 textwidth=0 noexpandtab
 
 " Whaaa?!
