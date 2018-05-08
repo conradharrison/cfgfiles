@@ -10,4 +10,5 @@ endif
 "set guifont=InputMono_Medium:h11
 "set guifont=Consolas:h12
 "set guifont=Misc\ Fixed\ 12
-set guifont=Inconsolata\ Medium\ 12
+"set guifont=Inconsolata\ Medium\ 12
+set guifont=Inconsolata:h12:cANSI:qDRAFT
