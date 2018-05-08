@@ -1,0 +1,24 @@
+if ( -f ~/.aliases.local ) then
+	source ~/.aliases.local
+endif
+
+setenv VIMBDIR          ~/vim_backup
+setenv TERMINFO         /usr/share/lib/terminfo
+setenv PATH             ${HOME}/local/${OSTYPE}/bin:${HOME}/local/bin:${PATH}
+setenv MANPATH          ${HOME}/local/${OSTYPE}/man:${MANPATH}
+
+# Prefix system defaults
+# Default ld.so search sequence has system defaults *in the end*
+# If so, rouge LD_LIBRARY_PATH updates can break common tools
+#setenv LD_LIBRARY_PATH  `expand.pl /etc/ld.so.conf | tr \\n :`
+
+# TODO HACK: New SLED 11.4 broke these libs
+setenv LD_LIBRARY_PATH ""
+setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${HOME}/local/${OSTYPE}/lib
+
+# interactive stuff like prompts
+if ( -f ~/.tcshrc.local ) then
+    source ~/.tcshrc.local
+endif
+
+# vim: ft=csh syn=csh

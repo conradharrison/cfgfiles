@@ -32,8 +32,10 @@ let g:netrw_liststyle=1 " 0-thin, 1-details, 2-wide, 3-tree
 
 syntax on
 
-set background=dark
-colorscheme darkblue
+if !exists("$LIGHTMODE")
+    set background=dark
+    colorscheme darkblue
+endif
 
 filetype plugin indent on
 
@@ -43,7 +45,6 @@ map! <S-Insert> <MiddleMouse>
 
 " SystemVerilog files use Verilog syntax
 autocmd BufNewFile,BufRead *.sv set syntax=verilog
-
 autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 textwidth=0 noexpandtab
 
 " Whaaa?!

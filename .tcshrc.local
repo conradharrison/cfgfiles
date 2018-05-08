@@ -1,0 +1,51 @@
+set ellipsis
+
+# Fancy prompt
+if ( $?prompt ) then
+
+    # dtterm uses reverse video
+    if (${TERM} == "dtterm" ) then
+        set reverse = "%{\033[7m%}"
+    else
+        set reverse = ""
+    endif
+
+    if ( $?LIGHTMODE ) then
+
+        set prompt_wintitle = "%{\033]0;%~\007%}"
+        set prompt_timestamp = "%{\033[1;35;47m%}%D %w %T (%h)%{\033[0m%}"
+        set prompt_timestamp = "%{\033[1;35;47m%}(%h)%{\033[0m%}"
+        set prompt_timestamp = "%{\033[1;35;47m%}%{\033[0m%}"
+        set prompt_path = "%{\033[1;34;47m%}$reverse%C3%{\033[0m%} > "
+        set prompt_path = "%{\033[1;34m%}$reverse%C3%{\033[0m%} > "
+        set prompt = "$prompt_wintitle$prompt_timestamp$prompt_path"
+
+        if ( $?CLEARCASE_ROOT ) then
+            set viewname = `basename $CLEARCASE_ROOT`
+            set prompt_viewname = "%{\033[1;31;47m%}${reverse}[$viewname]%{\033[0m%}"
+            set prompt_viewname = "%{\033[1;31m%}${reverse}[$viewname]%{\033[0m%}"
+            set prompt_wintitle = "%{\033]0;[$viewname]: %~\007%}"
+            set prompt = "$prompt_wintitle$prompt_viewname $prompt_timestamp$prompt_path"
+        endif
+
+    else
+
+        set prompt_wintitle = "%{\033]0;%~\007%}"
+        set prompt_timestamp = "%{\033[1;35;40m%}%D %w %T (%h)%{\033[0m%}"
+        set prompt_timestamp = "%{\033[1;35;40m%}(%h)%{\033[0m%}"
+        set prompt_timestamp = "%{\033[1;35;40m%}%{\033[0m%}"
+        set prompt_path = "%{\033[1;33;40m%}$reverse%C3%{\033[0m%} > "
+        set prompt_path = "%{\033[1;33m%}$reverse%C3%{\033[0m%} > "
+        set prompt = "$prompt_wintitle$prompt_timestamp$prompt_path"
+
+        if ( $?CLEARCASE_ROOT ) then
+            set viewname = `basename $CLEARCASE_ROOT`
+            set prompt_viewname = "%{\033[1;36;40m%}${reverse}[$viewname]%{\033[0m%}"
+            set prompt_viewname = "%{\033[1;36m%}${reverse}[$viewname]%{\033[0m%}"
+            set prompt_wintitle = "%{\033]0;[$viewname]: %~\007%}"
+            set prompt = "$prompt_wintitle$prompt_viewname $prompt_timestamp$prompt_path"
+        endif
+
+    endif
+    
+endif

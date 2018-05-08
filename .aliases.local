@@ -1,0 +1,15 @@
+alias ll                'ls -latr'
+alias h                 'history'
+alias gmore             'gvim -c "set nomodified" -'
+
+# Usefull ps display
+alias ps                 '\ps --forest -o pid,user,comm,args' # Just mine in this terminal
+alias psx                '\ps x --forest -o pid,user,comm,args' # Just mine, no-tty too
+alias psa                '\ps a --forest -o pid,user,comm,args' # all-users (all terms?)
+alias psax               '\ps ax --forest -o pid,user,comm,args' # all-users, no-tty too
+
+if (${OSTYPE} == "solaris") then
+    alias vim           'vim -T xtermc'
+endif
+
+# vim: ft=csh syn=csh

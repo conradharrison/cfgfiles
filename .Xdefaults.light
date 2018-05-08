@@ -1,0 +1,14 @@
+xterm*background:	white
+xterm*foreground:	black
+xterm*saveLines:	10000
+!xterm*font:             -*-fixed-medium-*-*-*-14-*-*-*-*-*-*-*
+xterm*faceName:             Inconsolata-12
+xterm*scrollTtyOutput:  false
+xterm*scrollBar:        false
+
+Terminal*background:            white
+Terminal*foreground:            black
+Terminal*saveLines:             10000 
+Terminal*scrollTtyOutput:       false
+
+dt.obsolete:	true
