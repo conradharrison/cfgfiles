@@ -24,37 +24,40 @@ if ( $?prompt ) then
     set black_bg     = "%{\033[40m%}"
     set white_bg     = "%{\033[107m%}"
 
+    # Don't manipulate colors if you don't know the terminal theme
     if ( $?LIGHTMODE ) then
+        if ( $LIGHTMODE == 0) then
 
-        set wintitle = "%{\033]0;%~\007%}"
-        set prompt_timestamp = "$bold$magenta_fg$white_bg%D %w %T (%h) $end"
-        set prompt_timestamp = "$bold$magenta_fg$white_bg$end"
-        set prompt_path = "$bold$darkblue_fg$white_bg$reverse%C3$end > "
-        set prompt = "$wintitle$prompt_timestamp$prompt_path"
+            set wintitle = "%{\033]0;%~\007%}"
+            set prompt_timestamp = "$bold$magenta_fg$black_bg%D %w %T (%h) $end"
+            set prompt_timestamp = "$bold$magenta_fg$black_bg$end"
+            set prompt_path = "$bold$yellow_fg$black_bg$reverse%C3$end > "
+            set prompt_path = "%{\033[1;33m%}$reverse%C3$end > "
+            set prompt = "$wintitle$prompt_timestamp$prompt_path"
 
-        if ( $?CLEARCASE_ROOT ) then
-            set viewname = `basename $CLEARCASE_ROOT`
-            set prompt_viewname = "$bold$red_fg$white_bg${reverse}[$viewname]$end"
-            set wintitle = "%{\033]0;[$viewname]: %~\007%}"
-            set prompt = "$wintitle$prompt_viewname $prompt_timestamp$prompt_path"
+            if ( $?CLEARCASE_ROOT ) then
+                set viewname = `basename $CLEARCASE_ROOT`
+                set prompt_viewname = "$bold$cyan_fg$black_bg${reverse}[$viewname]$end"
+                set wintitle = "%{\033]0;[$viewname]: %~\007%}"
+                set prompt = "$wintitle$prompt_viewname $prompt_timestamp$prompt_path"
+            endif
+
+        else
+
+            set wintitle = "%{\033]0;%~\007%}"
+            set prompt_timestamp = "$bold$magenta_fg$white_bg%D %w %T (%h) $end"
+            set prompt_timestamp = "$bold$magenta_fg$white_bg$end"
+            set prompt_path = "$bold$darkblue_fg$white_bg$reverse%C3$end > "
+            set prompt = "$wintitle$prompt_timestamp$prompt_path"
+
+            if ( $?CLEARCASE_ROOT ) then
+                set viewname = `basename $CLEARCASE_ROOT`
+                set prompt_viewname = "$bold$red_fg$white_bg${reverse}[$viewname]$end"
+                set wintitle = "%{\033]0;[$viewname]: %~\007%}"
+                set prompt = "$wintitle$prompt_viewname $prompt_timestamp$prompt_path"
+            endif
+
         endif
-
-    else
-
-        set wintitle = "%{\033]0;%~\007%}"
-        set prompt_timestamp = "$bold$magenta_fg$black_bg%D %w %T (%h) $end"
-        set prompt_timestamp = "$bold$magenta_fg$black_bg$end"
-        set prompt_path = "$bold$yellow_fg$black_bg$reverse%C3$end > "
-        set prompt_path = "%{\033[1;33m%}$reverse%C3$end > "
-        set prompt = "$wintitle$prompt_timestamp$prompt_path"
-
-        if ( $?CLEARCASE_ROOT ) then
-            set viewname = `basename $CLEARCASE_ROOT`
-            set prompt_viewname = "$bold$cyan_fg$black_bg${reverse}[$viewname]$end"
-            set wintitle = "%{\033]0;[$viewname]: %~\007%}"
-            set prompt = "$wintitle$prompt_viewname $prompt_timestamp$prompt_path"
-        endif
-
     endif
     
 endif

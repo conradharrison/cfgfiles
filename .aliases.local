@@ -12,4 +12,24 @@ if (${OSTYPE} == "solaris") then
     alias vim           'vim -T xtermc'
 endif
 
+if ( $?LIGHTMODE ) then
+    if ( $LIGHTMODE == 0) then
+        alias xterm 'xterm -fg white -bg black'
+    else
+        alias xterm 'xterm -fg black -bg white'
+    endif
+endif
+alias xterm-dark  'env LIGHTMODE=0 xterm -fg white -bg black'
+alias xterm-light 'env LIGHTMODE=1 xterm -fg black -bg white'
+    
+# git aliases. Its okay to set it every session, even though once is enough
+git config --global difftool.prompt false
+git config --global alias.dt difftool
+
+alias cambuild          'source /vobs/cores/mmedia/\!:1/core_info/build.cshrc'
+
+if ( -f ~/.aliases.qc ) then
+    source ~/.aliases.qc
+endif
+
 # vim: ft=csh syn=csh
