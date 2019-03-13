@@ -7,14 +7,17 @@ setenv TERMINFO         /usr/share/lib/terminfo
 setenv PATH             ${HOME}/local/${OSTYPE}/bin:${HOME}/local/bin:${PATH}
 setenv MANPATH          ${HOME}/local/${OSTYPE}/man:${MANPATH}
 
-# Prefix system defaults
-# Default ld.so search sequence has system defaults *in the end*
-# If so, rouge LD_LIBRARY_PATH updates can break common tools
-#setenv LD_LIBRARY_PATH  `expand.pl /etc/ld.so.conf | tr \\n :`
-
-# TODO HACK: New SLED 11.4 broke these libs
-setenv LD_LIBRARY_PATH ""
+# locals
+if ( ! $?LD_LIBRARY_PATH ) then
+    setenv LD_LIBRARY_PATH "DUMMY"
+endif
 setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${HOME}/local/${OSTYPE}/lib
+
+# For LSF: MMCamera-arch-"mm"
+setenv DRM_PROJECT `/pkg/icetools/bin/ptagger -f 10355 -t 04 -g  mm`
+
+# TODO HACK: Don't know why this doesnt happen automatically
+/pkg/qct/software/setcluster/bin/setcluster gridsdcb
 
 # interactive stuff like prompts
 if ( -f ~/.tcshrc.local ) then
