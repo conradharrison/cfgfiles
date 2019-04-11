@@ -1,5 +1,6 @@
 alias ll                'ls -latr'
 alias h                 'history'
+alias g                 'gvim'
 alias gmore             'gvim -c "set nomodified" -'
 
 # Usefull ps display

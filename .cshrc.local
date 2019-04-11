@@ -4,20 +4,18 @@ endif
 
 setenv VIMBDIR          ~/vim_backup
 setenv TERMINFO         /usr/share/lib/terminfo
-setenv PATH             ${HOME}/local/${OSTYPE}/bin:${HOME}/local/bin:${PATH}
-setenv MANPATH          ${HOME}/local/${OSTYPE}/man:${MANPATH}
+setenv PATH             ${PATH}:${HOME}/local/${OSTYPE}/bin:${HOME}/local/bin
+setenv MANPATH          ${MANPATH}:${HOME}/local/${OSTYPE}/man
 
-# locals
 if ( ! $?LD_LIBRARY_PATH ) then
-    setenv LD_LIBRARY_PATH "DUMMY"
+    setenv LD_LIBRARY_PATH ""
 endif
 setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:${HOME}/local/${OSTYPE}/lib
 
-# For LSF: MMCamera-arch-"mm"
-setenv DRM_PROJECT `/pkg/icetools/bin/ptagger -f 10355 -t 04 -g  mm`
-
-# TODO HACK: Don't know why this doesnt happen automatically
-/pkg/qct/software/setcluster/bin/setcluster gridsdcb
+# QC specific
+if ( -f ~/.cshrc.qc ) then
+    source ~/.cshrc.qc
+endif
 
 # interactive stuff like prompts
 if ( -f ~/.tcshrc.local ) then

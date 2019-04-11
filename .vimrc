@@ -32,10 +32,8 @@ let g:netrw_liststyle=1 " 0-thin, 1-details, 2-wide, 3-tree
 
 syntax on
 
-if !exists("$LIGHTMODE")
-    set background=dark
-    colorscheme darkblue
-endif
+"call plug#begin('~/.vim/plugged')
+"call plug#end()
 
 filetype plugin indent on
 
@@ -43,9 +41,9 @@ filetype plugin indent on
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-" SystemVerilog files use Verilog syntax
 autocmd BufNewFile,BufRead *.sv set syntax=verilog
-autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 textwidth=0 noexpandtab
+autocmd BufNewFile,BufRead *.mdl set syn=c
+autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 textwidth=0
 
 " Whaaa?!
 let fortran_free_source=1
