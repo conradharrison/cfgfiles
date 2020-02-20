@@ -28,11 +28,10 @@ let g:netrw_liststyle=1 " 0-thin, 1-details, 2-wide, 3-tree
 
 syntax on
 
-call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
-call plug#end() 
-
 filetype plugin indent on
+
+" Needs pathogen.vim under autoload/
+execute pathogen#infect()
 
 " Paste like xterm
 map <S-Insert> <MiddleMouse>
