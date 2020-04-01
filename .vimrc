@@ -1,6 +1,9 @@
 set nocompatible
 behave xterm
 
+" Example path
+let $VIMBDIR="c:/Temp/vimbackup"
+
 set backupdir=$VIMBDIR
 set backup
 if !isdirectory($VIMBDIR) | set nobackup | endif
@@ -11,6 +14,7 @@ set cmdwinheight=1
 set noswapfile
 set expandtab
 set highlight="l"
+set background=light
 set hlsearch
 set incsearch
 set ignorecase
@@ -30,12 +34,11 @@ set encoding=utf-8
 set diffexpr="diff -w -b"
 let g:netrw_liststyle=1 " 0-thin, 1-details, 2-wide, 3-tree
 
+filetype plugin indent on
 syntax on
 
-"call plug#begin('~/.vim/plugged')
-"call plug#end()
-
-filetype plugin indent on
+" Keep my plugins inside VIMDIR/bundle/
+execute pathogen#infect()
 
 " Paste like xterm
 map <S-Insert> <MiddleMouse>
