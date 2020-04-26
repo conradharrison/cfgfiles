@@ -45,7 +45,6 @@ map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
 autocmd BufNewFile,BufRead *.sv set syntax=verilog
-autocmd BufNewFile,BufRead *.mdl set syn=c
 autocmd BufNewFile,BufRead *.py set tabstop=4 shiftwidth=4 textwidth=0
 
 " Whaaa?!
