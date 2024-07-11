@@ -1,0 +1,21 @@
+[user]
+	email = conrad@tsavoritesi.com
+	name = conrad Harrison
+[diff]
+	tool = meld
+[difftool]
+	prompt = false
+[user]
+	email = conrad@tsavoritesi.com
+	name = Conrad Harrison
+[pull]
+	rebase = true
+[safe]
+	directory = *
+[rebase]
+	autoStash = true
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	cfiles = diff-tree --no-commit-id --name-only  -r
+[color "status"]
+	untracked = magenta
