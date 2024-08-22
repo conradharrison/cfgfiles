@@ -1,8 +1,5 @@
-[user]
-	email = conrad@tsavoritesi.com
-	name = conrad Harrison
 [diff]
-	tool = meld
+	tool = tkdiff
 [difftool]
 	prompt = false
 [user]
@@ -17,5 +14,9 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	cfiles = diff-tree --no-commit-id --name-only  -r
+    stat = status -- ":(exclude)*dv/uvmf/project_benches*"
 [color "status"]
-	untracked = magenta
+    #untracked = magenta
+	untracked = cyan
+#[color]
+#	status = always
