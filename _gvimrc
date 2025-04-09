@@ -1,19 +1,46 @@
-set guioptions=a
+""My font collection
+"set guifont=Monoid:h11
+"set guifont=Cascadia_Code:h11
+"set guifont=Fira_Code_Retina:h12
+"set guifont=Hack:h12
+"set guifont=DejaVu_Sans_Mono:h12:cANSI:qDRAFT
+"set guifont=Liberation_Mono:h12:cANSI:qDRAFT
+"set guifont=JetBrains_Mono:h12:cANSI:qDRAFT
 
-colorscheme gruvbox
+set guioptions=ak
 
-" If you really want dark...
-"set background=dark
-"colorscheme solarized
-"highlight Normal guibg=black
+" Only for GUI. Let terminal mode chose its own background mode
+set background=light
 
-" Some fonts I like...
-"set guifont=Lucida_Console:h10
-"set guifont=InputMono_Medium:h11
-"set guifont=Consolas:h12
-"set guifont=Misc\ Fixed\ 12
-"set guifont=Source_Code_Variable:h12:cANSI:qDRAFT
-"set guifont=Source_Code_Variable_Semibold:h12:cANSI:qDRAFT
-"set guifont=Inconsolata\ Medium\ 12
-"set guifont=Adobe\ Courier\ 12
-set guifont=Inconsolata:h12:cANSI:qDRAFT
+" Custom colorscheme:default
+function! DimBGColorForDefault()
+    if g:colors_name == 'default'
+        highlight Normal guibg=#fffff0 
+    endif
+endfunction
+
+autocmd ColorScheme * call DimBGColorForDefault()
+
+function! DefaultFont()
+    set guifont=JetBrains_Mono:h12:cANSI:qDRAFT
+endfunction
+
+function! LargeFont()
+    set guifont=JetBrains_Mono:h18:cANSI:qDRAFT
+endfunction
+
+function! Setguifont(n)
+    if a:n==1
+        call LargeFont()
+    else
+        call DefaultFont()
+        set go+=m go-=m
+    endif
+
+endfunction
+
+call Setguifont(0)
+
+" Some keymaps for guifotns only
+nnoremap <C-PageUp> :call Setguifont(1)<CR>
+nnoremap <C-PageDown> :call Setguifont(0)<CR>
