@@ -1,0 +1,17 @@
+XTerm*scrollBar: True
+XTerm*rightScrollBar: True
+XTerm*geometry: 120x50 
+XTerm*background: rgb:ff/ff/f0
+!XTerm*foreground:white
+XTerm*faceName: JetBrains Mono
+XTerm*faceSize: 12
+XTerm*internalBorder: 0
+XTerm*borderColor: black
+XTerm.termName: xterm-256color
+! mouse selection behaviour
+XTerm*cutNewLine: false
+XTerm*cutToBeginningOfLine: false
+XTerm*charClass: 33:48,35:48,37:48,42:48,45-47:48,64:48,95:48,126:48
+
+! For 32"/4K monitor
+Xft.dpi: 144
